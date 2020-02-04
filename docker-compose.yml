@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  history-api:
+    build: ../history-api/.
+    ports:
+      - 5020:5020
+    container_name: history-api
+
+  device-control-api:
+    build: ../device-control-api/.
+    ports:
+      - 5010:5010
+    container_name: device-control-api
