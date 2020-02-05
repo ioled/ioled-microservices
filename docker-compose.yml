@@ -1,14 +1,30 @@
-version: "3"
+version: "3.6"
 
 services:
   history-api:
     build: ../history-api/.
     ports:
       - 5020:5020
+    expose:
+      - 5020
     container_name: history-api
+    restart: always
 
   device-control-api:
     build: ../device-control-api/.
     ports:
       - 5010:5010
+    expose:
+      - 5010
     container_name: device-control-api
+    restart: always
+
+  gateway-api:
+    build: ../gateway-api/.
+    ports:
+      - 3000:3000
+    container_name: gateway-api
+    restart: always
+    links:
+      - history-api
+      - device-control-api
