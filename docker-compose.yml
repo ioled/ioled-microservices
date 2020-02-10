@@ -19,6 +19,15 @@ services:
     container_name: device-control-api
     restart: always
 
+  user-api:
+    build: ../user-api/.
+    ports:
+      - 5030:5030
+    expose:
+      - 5030
+    container_name: user-api
+    restart: always
+
   gateway-api:
     build: ../gateway-api/.
     ports:
