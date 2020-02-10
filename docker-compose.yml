@@ -37,3 +37,4 @@ services:
     links:
       - history-api
       - device-control-api
+      - user-api
