@@ -8,7 +8,6 @@ services:
     expose:
       - 5020
     container_name: history-api
-    restart: always
 
   device-control-api:
     build: ../device-control-api/.
@@ -17,7 +16,6 @@ services:
     expose:
       - 5010
     container_name: device-control-api
-    restart: always
 
   user-api:
     build: ../user-api/.
@@ -26,14 +24,12 @@ services:
     expose:
       - 5030
     container_name: user-api
-    restart: always
 
   gateway-api:
     build: ../gateway-api/.
     ports:
       - 3000:3000
     container_name: gateway-api
-    restart: always
     links:
       - history-api
       - device-control-api
