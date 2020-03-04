@@ -1,14 +1,6 @@
 version: "3.6"
 
 services:
-  history-api:
-    build: ../history-api/.
-    ports:
-      - 5020:5020
-    expose:
-      - 5020
-    container_name: history-api
-
   device-control-api:
     build: ../device-control-api/.
     ports:
@@ -17,6 +9,14 @@ services:
       - 5010
     container_name: device-control-api
 
+  history-api:
+    build: ../history-api/.
+    ports:
+      - 5020:5020
+    expose:
+      - 5020
+    container_name: history-api
+
   user-api:
     build: ../user-api/.
     ports:
@@ -24,6 +24,14 @@ services:
     expose:
       - 5030
     container_name: user-api
+
+  mailer-api:
+    build: ../mailer-api/.
+    ports:
+      - 5040:5040
+    expose:
+      - 5040
+    container_name: mailer-api
 
   gateway-api:
     build: ../gateway-api/.
@@ -34,3 +42,4 @@ services:
       - history-api
       - device-control-api
       - user-api
+      - mailer-api
